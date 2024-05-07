@@ -109,7 +109,7 @@ const AddMovie = () => {
               onChange={(e) => setActor(e.target.value)}
               variant="standard"
               margin="normal"
-              required
+              
             ></TextField>
             <Button
               onClick={() => {

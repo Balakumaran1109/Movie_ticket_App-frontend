@@ -45,6 +45,7 @@ const UserProfile = () => {
           {" "}
           {user && (
             <Box
+            display={"flex"}
               flexDirection={"column"}
               justifyContent={"center"}
               alignItems={"center"}
@@ -52,7 +53,7 @@ const UserProfile = () => {
               padding={3}
             >
               <AccountCircleIcon
-                sx={{ fontSize: "10rem", textAlign: "center", ml: 3 }}
+                sx={{ fontSize: "10rem"}}
               ></AccountCircleIcon>
               <Typography
                 padding={1}
@@ -98,24 +99,24 @@ const UserProfile = () => {
                       sx={{
                         bgcolor: "#00d386",
                         color: "white",
-                        textAlign: "center",
+                        textAlign: "left",
                         margin: 1,
                       }}
                     >
                       <ListItemText
-                        sx={{ margin: 1, width: "auto", textAlign: "left" }}
+                        sx={{ margin: "auto", width: "40%" }}
                       >
                         Movie: {booking.movie.title}
                       </ListItemText>
 
                       <ListItemText
-                        sx={{ margin: 1, width: "auto", textAlign: "left" }}
+                        sx={{ margin: "auto", width: "30%" }}
                       >
                         Seat: {booking.seatNumber}
                       </ListItemText>
 
                       <ListItemText
-                        sx={{ margin: 1, width: "auto", textAlign: "left" }}
+                        sx={{ margin: "auto", width: "30%" }}
                       >
                         Date {new Date(booking.date).toDateString()}
                       </ListItemText>

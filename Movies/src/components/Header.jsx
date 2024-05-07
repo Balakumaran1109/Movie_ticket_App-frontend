@@ -72,7 +72,7 @@ const Header = () => {
               <>
                 {" "}
                 <Tab LinkComponent={Link} to="/admin" label="Admin" />
-                <Tab LinkComponent={Link} to="/auth" label="Auth" />
+                <Tab LinkComponent={Link} to="/auth" label="User Login" />
               </>
             )}
 
