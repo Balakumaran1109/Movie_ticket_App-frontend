@@ -20,7 +20,8 @@ const UserProfile = () => {
   const [user, setUser] = useState();
 
   // getting initial data of user bookings
-  useEffect(() => {
+
+  const initialData = () => {
     getUserBooking()
       .then((res) => setBookings(res.bookings))
       .catch((err) => console.log(err));
@@ -30,14 +31,19 @@ const UserProfile = () => {
         setUser(res.user);
       })
       .catch((err) => console.log(err));
-  }, []);
-
+  };
   // to delete a booking
   const handleDelete = (id) => {
     deleteBooking(id)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+    initialData();
   };
+
+  useEffect(() => {
+    initialData();
+  }, []);
+
   return (
     <Box width={"100%"} display={"flex"}>
       {
@@ -45,16 +51,14 @@ const UserProfile = () => {
           {" "}
           {user && (
             <Box
-            display={"flex"}
+              display={"flex"}
               flexDirection={"column"}
               justifyContent={"center"}
               alignItems={"center"}
               width={"30%"}
               padding={3}
             >
-              <AccountCircleIcon
-                sx={{ fontSize: "10rem"}}
-              ></AccountCircleIcon>
+              <AccountCircleIcon sx={{ fontSize: "10rem" }}></AccountCircleIcon>
               <Typography
                 padding={1}
                 width={"auto"}
@@ -103,21 +107,15 @@ const UserProfile = () => {
                         margin: 1,
                       }}
                     >
-                      <ListItemText
-                        sx={{ margin: "auto", width: "40%" }}
-                      >
+                      <ListItemText sx={{ margin: "auto", width: "40%" }}>
                         Movie: {booking.movie.title}
                       </ListItemText>
 
-                      <ListItemText
-                        sx={{ margin: "auto", width: "30%" }}
-                      >
+                      <ListItemText sx={{ margin: "auto", width: "30%" }}>
                         Seat: {booking.seatNumber}
                       </ListItemText>
 
-                      <ListItemText
-                        sx={{ margin: "auto", width: "30%" }}
-                      >
+                      <ListItemText sx={{ margin: "auto", width: "30%" }}>
                         Date {new Date(booking.date).toDateString()}
                       </ListItemText>
                       <IconButton

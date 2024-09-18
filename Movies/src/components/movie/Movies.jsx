@@ -33,7 +33,7 @@ const Movies = () => {
         justifyContent={"center"}
         flexWrap={"wrap"}
       >
-        {movies &&
+        {!movies ? <h3>Fetching Latest Movies... Please Wait...</h3> :
           movies.map((movie, index) => (
             <MovieItem
               key={index}

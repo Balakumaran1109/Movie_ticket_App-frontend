@@ -36,7 +36,7 @@ const HomePage = () => {
         flexWrap={"wrap"}
         alignItems={"center"}
       >
-        {movies &&
+        {!movies ? <h3>Fetching Latest Movies... Please Wait...</h3> :
           movies
             .slice(0, 4)
             .map((movie, index) => (
