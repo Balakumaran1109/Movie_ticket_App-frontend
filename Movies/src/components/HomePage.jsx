@@ -6,12 +6,19 @@ import { getAllMovies } from "../api-helpers/api-helpers";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const getMovies = async () => {
+    setLoading(true)
+    const data = await getAllMovies();
+    setMovies(data.movies);
+    setLoading(false)
+
+  };
 
   // getting initial data
   useEffect(() => {
-    getAllMovies()
-      .then((data) => setMovies(data.movies))
-      .catch((err) => console.log(err));
+    getMovies();
   }, []);
   return (
     <Box width={"100%"} height={"100%"} margin={"auto"} marginTop={2}>
@@ -36,7 +43,7 @@ const HomePage = () => {
         flexWrap={"wrap"}
         alignItems={"center"}
       >
-        {!movies ? (
+        {loading ? (
           <h3>Fetching Latest Movies... Please Wait...</h3>
         ) : (
           movies
