@@ -5,19 +5,16 @@ The Movie Ticket Booking App is a simple and intuitive web application that allo
 
 ##  Features
 -  Browse available movies and showtimes
--  Select preferred cinema locations
--  Choose seats for a comfortable experience
+-  Select seats for your preferred show
 -  Search for movies by name or genre
--  Responsive UI for seamless mobile & desktop usage
+-  Responsive design for mobile and desktop
 
----
 
 ##  Tech Stack
 - **Frontend:** React.js, HTML, CSS, JavaScript
 - **UI Frameworks:** Bootstrap, Material-UI
 - **State Management:** React Hooks (useState, useEffect)
 
----
 
 ##  Installation & Setup
 
@@ -34,18 +31,15 @@ The Movie Ticket Booking App is a simple and intuitive web application that allo
    ```sh
    npm start
    ```
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
----
 
 ##  Contributing
 
 Contributions are welcome! Feel free to submit bug reports, feature requests, or pull requests.
 
----
 
 ##  Backend Repo
-The backend repository for this project can be found [here](#).
+The backend repository for this project can be found [here](https://github.com/Balakumaran1109/Movie_ticket_App-backend).
 
 ---
 
