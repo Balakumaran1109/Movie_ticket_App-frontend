@@ -1,8 +1,7 @@
-#  Movie Ticket Booking App (Frontend)
+#  Movie Ticket Booking App 
 
-An intuitive and user-friendly movie ticket booking application that allows users to browse movies, select showtimes, and book tickets effortlessly.
+The Movie Ticket Booking App is a simple and intuitive web application that allows users to browse movies, select showtimes, and choose seats seamlessly. Designed for a smooth and hassle-free booking experience, making movie planning quick and convenient!
 
----
 
 ##  Features
 -  Browse available movies and showtimes
