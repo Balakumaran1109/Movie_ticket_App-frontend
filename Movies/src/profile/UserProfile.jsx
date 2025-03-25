@@ -116,7 +116,7 @@ const UserProfile = () => {
                       </ListItemText>
 
                       <ListItemText sx={{ margin: "auto", width: "30%" }}>
-                        Date {new Date(booking.date).toDateString()}
+                        Date: {new Date(booking.date).toDateString()}
                       </ListItemText>
                       <IconButton
                         color="error"

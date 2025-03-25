@@ -33,7 +33,9 @@ const Movies = () => {
         justifyContent={"center"}
         flexWrap={"wrap"}
       >
-        {!movies ? <h3>Fetching Latest Movies... Please Wait...</h3> :
+        {!movies ? (
+          <h3>Fetching Latest Movies... Please Wait...</h3>
+        ) : (
           movies.map((movie, index) => (
             <MovieItem
               key={index}
@@ -42,7 +44,8 @@ const Movies = () => {
               posterUrl={movie.posterUrl}
               releaseDate={movie.releaseDate}
             />
-          ))}
+          ))
+        )}
       </Box>
     </Box>
   );

@@ -5,7 +5,7 @@ import { Box, Button, FormLabel, TextField, Typography } from "@mui/material";
 
 const Booking = () => {
   const [movie, setmovie] = useState();
-  const [inputs, setInputs] = useState({ seatNumber: "", date: "" });
+  const [inputs, setInputs] = useState({ seatNumber: "", date: new Date().toDateString() });
   const id = useParams().id;
   const navigate = useNavigate();
 
@@ -16,17 +16,10 @@ const Booking = () => {
       .catch((err) => console.log(err));
   }, [id]);
 
-  const handleChange = (e) => {
-    setInputs((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
   // new booking request
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputs);
+    console.log("inputs", inputs);
     newBooking({ ...inputs, movie: movie._id })
       .then((res) => {
         alert("Movie Booked successfully");
@@ -36,6 +29,27 @@ const Booking = () => {
       .catch((err) => console.log(err));
   };
 
+  const numbers = Array.from({ length: 51 }, (_, index) => index);
+
+  const handleSelect = (e) => {
+    setInputs((prevState) => ({ ...prevState, seatNumber: e.target.value }));
+  };
+
+  const getNext3Days = () => {
+    const dates = [];
+    for (let i = 1; i < 5; i++) {
+      const date = new Date();
+      date.setDate(date.getDate() + i);
+      dates.push(date.toDateString());
+    }
+    return dates;
+  };
+
+  const handleDateChange = (event) => {
+    setInputs((prevState) => ({ ...prevState, date: event.target.value }));
+  };
+
+  const dates = getNext3Days();
   return (
     <div>
       {movie && (
@@ -56,6 +70,7 @@ const Booking = () => {
               paddingTop={3}
               width={"50%"}
               marginRight={"auto"}
+              marginLeft={5}
             >
               <Box width={"70%"} textAlign={"center"}>
                 <img
@@ -76,38 +91,58 @@ const Booking = () => {
                   Starrer: {movie.actors.map((actor) => " " + actor + " ")}
                 </Typography>
                 <Typography fontWeight={"bold"} marginTop={1}>
-                  Release Date: {new Date(movie.releaseDate).toDateString()}
+                  Release Date: {new Date().toDateString()}
                 </Typography>
               </Box>
             </Box>
-            <Box padding={3} width={"50%"}>
+            <Box marginRight={9} marginTop={5} width={"50%"}>
               <form onSubmit={handleSubmit}>
                 <Box
                   padding={5}
                   margin={"auto"}
                   display={"flex"}
-                  flexDirection={"column"}
+                  flexDirection={"row"}
+                  justifyContent={"space-evenly"}
+                  marginRight={5}
+                  textAlign={"center"}
                 >
-                  <FormLabel>Seat Number</FormLabel>
-                  <TextField
-                    value={inputs.seatNumber}
-                    onChange={handleChange}
-                    name="seatNumber"
-                    type={"number"}
-                    margin="normal"
-                    variant="standard"
-                  ></TextField>
+                  <Box>
+                    <FormLabel>Seat Number</FormLabel>
+                    <br></br>
+                    <br></br>
 
-                  <FormLabel>Date</FormLabel>
-                  <TextField
-                    value={inputs.date}
-                    onChange={handleChange}
-                    name="date"
-                    type={"date"}
-                    margin="normal"
-                    variant="standard"
-                  ></TextField>
-                  <Button type="submit" sx={{ mt: 3 }}>
+                    <select onChange={handleSelect}>
+                      {numbers.map((number) => (
+                        <option key={number} value={number}>
+                          {number}
+                        </option>
+                      ))}
+                    </select>
+                    <p>
+                      Selected Seat Number : <b>{inputs.seatNumber}</b>
+                    </p>
+                  </Box>
+                  <br></br>
+                  <br></br>
+
+                  <Box>
+                    <FormLabel>Date</FormLabel>
+                    <br></br>
+                    <br></br>
+                    <select value={inputs.date} onChange={handleDateChange}>
+                      {dates.map((date) => (
+                        <option key={date} value={date}>
+                          {date}
+                        </option>
+                      ))}
+                    </select>
+                    <p>
+                      Selected Date: <b>{inputs.date}</b>
+                    </p>
+                  </Box>
+                </Box>
+                <Box textAlign={"center"}>
+                  <Button type="submit" variant="contained" sx={{ mt: 3 }}>
                     Book Now
                   </Button>
                 </Box>

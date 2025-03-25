@@ -36,7 +36,9 @@ const HomePage = () => {
         flexWrap={"wrap"}
         alignItems={"center"}
       >
-        {!movies ? <h3>Fetching Latest Movies... Please Wait...</h3> :
+        {!movies ? (
+          <h3>Fetching Latest Movies... Please Wait...</h3>
+        ) : (
           movies
             .slice(0, 4)
             .map((movie, index) => (
@@ -47,7 +49,8 @@ const HomePage = () => {
                 posterUrl={movie.posterUrl}
                 releaseDate={movie.releaseDate}
               />
-            ))}
+            ))
+        )}
       </Box>
       <Box display={"flex"} padding={5} margin={"auto"}>
         <Button
