@@ -13,7 +13,7 @@ The Movie Ticket Booking App is a simple and intuitive web application that allo
 ##  Tech Stack
 - **Frontend:** React.js, HTML, CSS, JavaScript
 - **UI Frameworks:** Bootstrap, Material-UI
-- **State Management:** React Hooks (useState, useEffect)
+- **State Management:** Redux
 
 
 ##  Installation & Setup
@@ -39,9 +39,8 @@ Contributions are welcome! Feel free to submit bug reports, feature requests, or
 
 
 ##  Backend Repo
-The backend repository for this project can be found [here](https://github.com/Balakumaran1109/Movie_ticket_App-backend).
+The backend repository for this project can be found here [backend repo](https://github.com/Balakumaran1109/Movie_ticket_App-backend).
 
----
 
 ##  License
 This project is open-source and available under the [MIT License](LICENSE).
