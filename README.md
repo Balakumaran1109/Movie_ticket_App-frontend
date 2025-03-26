@@ -20,8 +20,8 @@ The Movie Ticket Booking App is a simple and intuitive web application that allo
 
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/YOUR_GITHUB_USERNAME/movie-ticket-booking-frontend.git
-   cd movie-ticket-booking-frontend
+   git clone https://github.com/Balakumaran1109/Movie_ticket_App-frontend.git
+   cd frontend
    ```
 2. **Install dependencies**
    ```sh
